@@ -1,0 +1,286 @@
+body {
+  background-color: #161616;
+  color: white;
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  flex-direction: column;
+}
+.background-text {
+  position: absolute;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.05);
+  font-weight: bold;
+  z-index: 1;
+  white-space: nowrap;
+}
+.profile-pic {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  z-index: 2;
+  filter: grayscale(100%);
+}
+footer {
+  background-color: #111;
+  padding: 20px 0;
+  text-align: center;
+}
+.navbar-dark .navbar-nav .nav-link { color: white; }
+.navbar-dark .navbar-nav .nav-link:hover { color: #0d6efd; }
+
+@media (max-width: 768px) {
+  .background-text { font-size: 50px; }
+  .profile-pic { max-width: 250px; }
+}
+
+/* Zoom effect sections */
+#about, #skills, #projects, #schools, #contact {
+  background-color: #222;
+  padding: 50px 0;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#about.visible, #skills.visible, #projects.visible, #schools.visible, #contact.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+#about p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-icon img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.contact-icon img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Generic background card */
+.bg-card {
+  background-size: cover;
+  background-position: center;
+  height: 280px;
+  position: relative;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: .75rem;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+.bg-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.bg-card .card-body {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.elementary-card {
+  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+}
+.highschool-card {
+  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+}
+.seniorhigh-card {
+  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+}
+.university-card {
+  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/377836859_689506833202414_282208381433557901_n.jpg?raw=true');
+}
+
+.progress-bar { width: 0; transition: width 1.5s ease-in-out; }
+
+/* Carousel tweaks */
+.carousel-indicators [data-bs-target] {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.carousel .rounded { border-radius: .75rem!important; }
+
+/* Projects first slide background - now clickable */
+.project1-bg {
+  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/image_2025-08-19_003513420.png?raw=true');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: .75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.project1-bg:hover {
+  transform: scale(1.02);
+}
+.project1-bg h5, .project1-bg p {
+  background: rgba(0, 0, 0, 0.6);
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+}
+
+/* Slideshow Modal Styles */
+.slideshow-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.slideshow-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideshow-image {
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.slideshow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.slideshow-nav:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.slideshow-prev {
+  left: 30px;
+}
+
+.slideshow-next {
+  right: 30px;
+}
+
+.slideshow-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.slideshow-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.slideshow-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.slideshow-dots {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.slideshow-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slideshow-dot.active {
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .slideshow-nav {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  .slideshow-prev {
+    left: 15px;
+  }
+  .slideshow-next {
+    right: 15px;
+  }
+  .slideshow-close {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    padding: 8px 12px;
+  }
+}
