@@ -1,145 +1,85 @@
 body {
-  background-color: #161616;
+  font-family: 'Arial', sans-serif;
+  background-color: #0a0a0a;
   color: white;
-  scroll-behavior: smooth;
-  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  padding-top: 56px;
+  margin: 0;
 }
+
 .hero {
-  height: 100vh;
+  height: calc(100vh - 56px);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
   flex-direction: column;
-}
-.background-text {
-  position: absolute;
-  font-size: 80px;
-  color: rgba(255, 255, 255, 0.05);
-  font-weight: bold;
-  z-index: 1;
-  white-space: nowrap;
-}
-.profile-pic {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  z-index: 2;
-  filter: grayscale(100%);
-}
-footer {
-  background-color: #111;
-  padding: 20px 0;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* Changed colorful gradient to dark background */
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
   text-align: center;
 }
-.navbar-dark .navbar-nav .nav-link { color: white; }
-.navbar-dark .navbar-nav .nav-link:hover { color: #0d6efd; }
 
-@media (max-width: 768px) {
-  .background-text { font-size: 50px; }
-  .profile-pic { max-width: 250px; }
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  position: relative;
 }
 
-/* Zoom effect sections */
-#about, #skills, #projects, #schools, #contact {
-  background-color: #222;
-  padding: 50px 0;
+.hero h1, .hero p {
+  z-index: 2;
+  position: relative;
+}
+
+section {
+  padding: 80px 0;
   opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
-#about.visible, #skills.visible, #projects.visible, #schools.visible, #contact.visible {
+
+section.visible {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
 }
+
 section h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: white;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  color: #fff;
 }
-#about p {
+
+#about {
+  background-color: #111;
   text-align: center;
+  padding: 40px 20px;
+}
+
+#about p {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
 }
 
-.contact-icon img {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-.contact-icon img:hover {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-}
-
-.contact-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-/* Generic background card */
-.bg-card {
-  background-size: cover;
-  background-position: center;
-  height: 280px;
-  position: relative;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: .75rem;
+.progress {
+  background-color: #333;
+  border-radius: 10px;
   overflow: hidden;
-  text-decoration: none;
-  display: block;
-}
-.bg-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-.bg-card .card-body {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
 }
 
-.elementary-card {
-  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
-}
-.highschool-card {
-  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
-}
-.seniorhigh-card {
-  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
-}
-.university-card {
-  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/377836859_689506833202414_282208381433557901_n.jpg?raw=true');
+.progress-bar {
+  transition: width 2s ease-in-out;
+  width: 0;
 }
 
-.progress-bar { width: 0; transition: width 1.5s ease-in-out; }
-
-/* Carousel tweaks */
-.carousel-indicators [data-bs-target] {
-  width: 10px; height: 10px; border-radius: 50%;
-}
-.carousel .rounded { border-radius: .75rem!important; }
-
-/* Projects first slide background - now clickable */
 .project1-bg {
-  background-image: url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/image_2025-08-19_003513420.png?raw=true');
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/Screenshot%202025-08-19%20114758.png?raw=true');
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -147,17 +87,89 @@ section h2 {
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: .75rem;
+  text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease;
+  border-radius: 10px;
 }
+
 .project1-bg:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
-.project1-bg h5, .project1-bg p {
-  background: rgba(0, 0, 0, 0.6);
-  padding: .5rem 1rem;
-  border-radius: .5rem;
+
+.elementary-card, .highschool-card, .seniorhigh-card, .university-card {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+}
+
+.elementary-card {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.highschool-card {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.seniorhigh-card {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/246005779_4365191073535113_8902822076444370429_n.png?raw=true');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.university-card {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://github.com/abcde100/cris-abcde-cristobal/blob/main/377836859_689506833202414_282208381433557901_n.jpg?raw=true');
+  /* Changed back to cover to show whole image filling the background */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.elementary-card:hover, .highschool-card:hover, .seniorhigh-card:hover, .university-card:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.contact-icon img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.contact-icon:hover img {
+  transform: scale(1.2);
+}
+
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 20px;
+  color: #666;
 }
 
 /* Slideshow Modal Styles */
@@ -169,7 +181,7 @@ section h2 {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .slideshow-content {
